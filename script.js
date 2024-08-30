@@ -1,12 +1,17 @@
 var crsr = document.querySelector("#cursor");
+var crsrBlur = document.querySelector("#cursor-blur");
+
 document.addEventListener("mousemove", function (dets) {
   //   console.log(dets.x + "," + dets.y);
   crsr.style.left = dets.x + "px";
   crsr.style.top = dets.y + "px";
+
+  crsrBlur.style.left = dets.x - 250 + "px";
+  crsrBlur.style.top = dets.y - 250 + "px";
 });
 
 gsap.to("#nav", {
-  backgroundColor: "rgba(0,0,0,0.7)",
+  backgroundColor: "#000",
   duration: 0.5,
   height: "100px",
   scrollTrigger: {
@@ -24,7 +29,7 @@ gsap.to("#main", {
   scrollTrigger: {
     trigger: "#main",
     scroller: "body",
-    markers: true,
+    // markers: true,
     start: "top -25%",
     end: "top -70%",
     scrub: 2,
